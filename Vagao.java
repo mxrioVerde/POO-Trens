@@ -1,2 +1,3 @@
-public class Vagao extends CarroFerroviario {
+public abstract class Vagao extends CarroFerroviario {
+    // botar get_peso()
 }

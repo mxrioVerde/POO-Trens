@@ -15,7 +15,7 @@ public class Sistema{
 
     public static boolean menu_opcao(int escolha){
         switch(escolha){
-            case 1 -> {System.out.println("criar um trem"); return true;}
+            case 1 -> {criar_trem(); return true;}
 
             case 2 -> {System.out.println("editar um trem"); return true;}
 
@@ -27,16 +27,22 @@ public class Sistema{
 
             case 6 -> {g.criar_vagao(); return true;}
 
-            case 7 -> {g.criar_locomotiva(); return true;}
+            case 7 -> {return true;}
 
-            case 8 -> {Trem t = new Trem();
+            /*case 8 -> {Trem t = new Trem();
                 System.out.println(p.inserir_trem(t));
-                return true;}
+                return true;}*/
 
             case 0 -> {System.out.println("até mais"); return false;}
 
             default -> { System.out.println("opção não existe"); return true;}
         }
+    }
+
+    public static void criar_trem() {
+        System.out.println("Qual o identificador do trêm que você deseja?");
+        int id = i.nextInt();
+        new Trem(id);
     }
 
     public static void imprimir_menu(){
