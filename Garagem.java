@@ -8,7 +8,7 @@ public class Garagem {
 
 
     public Vagao criar_vagao(){
-        Vagao v = new Vagao();
+        VagaoPassageiros v = new VagaoPassageiros();
         System.out.println(v.get_id());
         return v;
     }

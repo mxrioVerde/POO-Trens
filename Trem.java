@@ -1,10 +1,10 @@
 import java.util.LinkedList;
 public class Trem {
-    private int id;
+    private String id;
     private LinkedList<CarroFerroviario> composicao;
     private int tracaoMax;
     private int pesomax;
-    public Trem(int id){
+    public Trem(String id){
         this.id = id;
         composicao = new LinkedList<CarroFerroviario>();
         pesomax = 0;
@@ -20,17 +20,17 @@ public class Trem {
         }
 
         composicao.add(c);
-        if (c instanceof Vagao) { pesomax += c.get_peso();} else {tracaoMax += c.get_tracaoMax();}
+        if (c instanceof Vagao) { pesomax += c.get_peso();} else {tracaoMax += c.get_tracaomax();}
         g.retirarCarro(c);
     }
 
     public void desengatar_carro(CarroFerroviario c, Garagem g) {
-        if (c instanceof Vagao) { pesomax -= c.get_peso();} else {tracaoMax -= c.get_tracaoMax();}
+        if (c instanceof Vagao) { pesomax -= c.get_peso();} else {tracaoMax -= c.get_tracaomax();}
         composicao.remove(c);
         g.inserirCarro(c);
     }
 
-    public int get_id() {
+    public String get_id() {
         return id;
     }
 

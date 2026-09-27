@@ -9,14 +9,10 @@ public abstract class CarroFerroviario {
     }
 
     public int get_id(){return id;}
-
     public boolean get_livre() {return estado;}
-
     public boolean mudaEstado() {
         return estado = !estado;
     }
-
+    public abstract int get_tracaomax();
     public abstract int get_peso();
-
-    public abstract int get_tracaoMax();
 }

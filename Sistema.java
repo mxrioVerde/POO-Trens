@@ -9,6 +9,7 @@ public class Sistema{
         while(op){
             imprimir_menu();
             escolha = i.nextInt();
+            i.nextLine();
             op = menu_opcao(escolha);
         }
     }
@@ -40,9 +41,10 @@ public class Sistema{
     }
 
     public static void criar_trem() {
-        System.out.println("Qual o identificador do trêm que você deseja?");
-        int id = i.nextInt();
-        new Trem(id);
+        System.out.println("Qual o identificador do trem que você deseja?");
+        String id = i.nextLine();
+        Trem t = new Trem(id);
+        p.inserir_trem(t);
     }
 
     public static void imprimir_menu(){

@@ -8,9 +8,7 @@ public class Locomotiva extends CarroFerroviario{
         pesoMaxTracao = 10000; // valor ficticio
     }
 
-    public int getPesoMaxTracao() {return pesoMaxTracao;}
+    public int get_tracaomax() {return pesoMaxTracao;}
 
-    public int get_peso() {
-
-    }
+    public int get_peso() {return 0;}
 }
