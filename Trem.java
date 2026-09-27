@@ -26,12 +26,25 @@ public class Trem {
         g.retirarCarro(c);
     }
 
-    public void desengatar_carro(CarroFerroviario c, Garagem g) {
-        if (c instanceof Vagao) { pesomax -= c.get_peso(); qtdVagoes--;} else {tracaoMax -= c.get_tracaomax();qtdLocomotivas--;}
-        composicao.remove(c);
-        g.guardarCarro(c);
+    public void desengatar_carro(Garagem g) {
+        if (composicao.getLast() instanceof Vagao) { pesomax -= composicao.getLast().get_peso(); qtdVagoes--;} else {tracaoMax -= composicao.getLast().get_tracaomax();qtdLocomotivas--;}
+        g.guardarCarro(composicao.getLast());
+        composicao.removeLast();
     }
 
     public String get_id() {return id;}
+
+    public void printarCF() {
+        for (int i = 0; i < composicao.size(); i++) {
+            System.out.print(i);
+            System.out.println(" + " + composicao.get(i));
+        }
+    }
+
+    public void desfazerTrem(Garagem g) {
+        for (int i = 0; i < composicao.size(); i++) {
+            desengatar_carro(g);
+        }
+    }
 
 }

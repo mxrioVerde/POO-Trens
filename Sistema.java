@@ -18,7 +18,11 @@ public class Sistema{
         switch(escolha){
             case 1 -> {criar_trem(); return true;}
 
-            case 2 -> {imprimir_menuEdicao(); return true;}
+            case 2 -> {
+                System.out.println("Qual o id do trêm que você deseja editar?");
+                String aux = i.nextLine();
+                imprimir_menuEdicao(p.achar_trem(aux));
+                return true;}
 
             case 3 -> {p.listar_trens(); return true;}
 
@@ -39,26 +43,30 @@ public class Sistema{
         p.inserir_trem(t);
     }
 
-    public static void menu_edicao(int opcao) {
+    public static void menu_edicao(int opcao, Trem t) {
         switch (opcao) {
             case 1:
-                System.out.println("1");
+                menuEngatarCarroFerroviario(t);
                 // Engatar um carro ferroviário no trem
                 break;
 
             case 2:
+                t.desengatar_carro(g);
                 // Remover o último carro ferroviário
                 break;
 
             case 3:
+                g.printarTudo();
                 // Listar os carros ferroviários estacionados na garagem
                 break;
 
             case 4:
+                g.printarTudo();
                 // Listar os carros ferroviários que fazem parte do trem
                 break;
 
             case 5:
+                t.desfazerTrem(g);
                 break;
 
             default:
@@ -66,7 +74,7 @@ public class Sistema{
         }
     }
 
-    public static void imprimir_menuEdicao() {
+    public static void imprimir_menuEdicao(Trem t) {
         System.out.println("""
                     === Edição do Trem ===
                     1 - Engatar um carro ferroviário no trem
@@ -76,14 +84,14 @@ public class Sistema{
                     5 - Encerrar a edição do trem
                     """);
         int aux = i.nextInt();
-        menu_edicao(aux);
+        menu_edicao(aux,t);
     }
 
     public static void imprimir_menu(){
         System.out.println("escolha");
     }
 
-    public static void menuEngatarCarroFerroviario() {
+    public static void menuEngatarCarroFerroviario(Trem t) {
         System.out.println("""
         Qual tipo você deseja engatar no trêm?
         --------------------------------------
@@ -94,5 +102,7 @@ public class Sistema{
         5 - Vagão de Carga Refrigerado
         """);
         int aux = i.nextInt();
+        System.out.println("Escolha qual dos disponíveis você deseja:");
+        t.engatar_carro(g.listar(aux), g);
     }
 }

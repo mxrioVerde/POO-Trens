@@ -13,4 +13,11 @@ public class Patio {
         }
         System.out.println(sb);
     }
+
+    public Trem achar_trem(String id) {
+        for (int i = 0; i < patio.size(); i++) {
+            if (id.equals(patio.get(i).get_id())); {return patio.get(i);}
+        }
+        throw new IllegalArgumentException();
+    }
 }

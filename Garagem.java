@@ -26,26 +26,6 @@ public class Garagem {
     public void retirarCarro(CarroFerroviario c) {
         switch(c) {
             case VagaoCargaRefrigerado ignored -> {
-                vagoesCargaRefrigerado.add(c);
-            }
-            case VagaoRestaurante ignored -> {
-                vagoesRestaurante.add(c);
-            }
-            case VagaoPassageiros ignored -> {
-                vagoesPassageiros.add(c);
-            }
-            case VagaoCarga ignored -> {
-                vagoesCarga.add(c);
-            }
-            case Locomotiva ignored -> {
-                locomotivas.add(c);
-            }
-            default -> throw new IllegalStateException();
-        }
-    }
-    public void guardarCarro(CarroFerroviario c) {
-        switch(c) {
-            case VagaoCargaRefrigerado ignored -> {
                 vagoesCargaRefrigerado.remove(c);
             }
             case VagaoRestaurante ignored -> {
@@ -63,10 +43,86 @@ public class Garagem {
             default -> throw new IllegalStateException();
         }
     }
+    public void guardarCarro(CarroFerroviario c) {
+        switch(c) {
+            case VagaoCargaRefrigerado ignored -> {
+                vagoesCargaRefrigerado.add(c);
+            }
+            case VagaoRestaurante ignored -> {
+                vagoesRestaurante.add(c);
+            }
+            case VagaoPassageiros ignored -> {
+                vagoesPassageiros.add(c);
+            }
+            case VagaoCarga ignored -> {
+                vagoesCarga.add(c);
+            }
+            case Locomotiva ignored -> {
+                locomotivas.add(c);
+            }
+            default -> throw new IllegalStateException();
+        }
+    }
 
-    public void listar() {
-        for (CarroFerroviario x: vagoesCarga) {
-            System.out.println(x);
+    public CarroFerroviario listar(int i) {
+        switch (i) {
+            case 1:
+                formatListar(locomotivas);
+                int aux = Sistema.i.nextInt();
+                return locomotivas.get(aux);
+            case 2:
+                formatListar(vagoesCarga);
+                int aux1 = Sistema.i.nextInt();
+                return vagoesCarga.get(aux1);
+            case 3:
+                formatListar(vagoesPassageiros);
+                int aux2 = Sistema.i.nextInt();
+                return vagoesPassageiros.get(aux2);
+            case 4:
+                formatListar(vagoesRestaurante);
+                int aux3 = Sistema.i.nextInt();
+                return vagoesRestaurante.get(aux3);
+            case 5:
+                formatListar(vagoesCargaRefrigerado);
+                int aux4 = Sistema.i.nextInt();
+                return vagoesCargaRefrigerado.get(aux4);
+            default:
+                throw new IllegalArgumentException();
+        }
+    }
+
+    public void formatListar(LinkedList l) {
+        for (int i = 0; i < l.size(); i++) {
+            System.out.print(i);
+            System.out.println(" " + l.get(i));
+        }
+    }
+
+    public void printarTudo() {
+        System.out.println("Locomotivas: ");
+        for (int i = 0; i < locomotivas.size(); i++) {
+            System.out.print(i);
+            System.out.println(" " + locomotivas.get(i));
+        }
+        System.out.println("Vagões de Carga: ");
+        for (int i = 0; i < vagoesCarga.size(); i++) {
+            System.out.print(i);
+            System.out.println(" " + vagoesCarga.get(i));
+        }
+        System.out.println("Vagões de Carga Refrigerada: ");
+        for (int i = 0; i < vagoesCargaRefrigerado.size(); i++) {
+            System.out.print(i);
+            System.out.println(" " + vagoesCargaRefrigerado.get(i));
+        }
+        System.out.println("Vagões de Passageiros: ");
+        for (int i = 0; i < vagoesPassageiros.size(); i++) {
+            System.out.print(i);
+            System.out.println(" " + vagoesPassageiros.get(i));
+        }
+        System.out.println("Vagões de Restaurantes: ");
+        for (int i = 0; i < vagoesRestaurante.size(); i++) {
+            System.out.print(i);
+            System.out.println(" " + vagoesRestaurante.get(i));
         }
     }
 
