@@ -28,7 +28,13 @@ public class Sistema{
 
             case 4 -> {System.out.println("listar características"); return true;}
 
-            case 5 -> {System.out.println("desfazer trem"); return true;}
+            case 5 -> {
+                System.out.println("Qual o id do trêm que você deseja desfazer?");
+                String aux2 = i.nextLine();
+                Trem tt = p.achar_trem(aux2);
+                tt.desfazerTrem(g);
+                return true;
+            }
 
             case 0 -> {System.out.println("até mais"); return false;}
 
