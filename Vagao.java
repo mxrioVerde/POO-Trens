@@ -1,3 +1,5 @@
 public abstract class Vagao extends CarroFerroviario {
-    // botar get_peso()
+
+    public abstract int get_peso();
+
 }

@@ -5,7 +5,7 @@ public class Patio {
         patio = new ArrayList<>();
     }
 
-    public String inserir_trem(Trem t){patio.add(t); return t.get_id();}
+    public void inserir_trem(Trem t){patio.add(t);}
     public void listar_trens(){
         StringBuilder sb = new StringBuilder();
         for(Trem x : patio){

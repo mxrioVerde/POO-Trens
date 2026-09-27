@@ -1,5 +1,3 @@
-import java.util.LinkedList;
-
 public class Locomotiva extends CarroFerroviario{
     private int pesoMaxTracao;
 

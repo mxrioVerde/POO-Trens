@@ -1,11 +1,10 @@
 public class VagaoRestaurante extends VagaoPassageiros{
-    @Override
-    public int get_peso() {
-        return super.get_peso();
+    public VagaoRestaurante(int qtdAssentos) {
+        super(qtdAssentos);
     }
 
     @Override
-    public int get_tracaomax() {
-        return super.get_tracaomax();
+    public int get_peso() {
+        return (super.get_peso() + 1160);
     }
 }

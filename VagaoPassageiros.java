@@ -1,7 +1,14 @@
 public class VagaoPassageiros extends Vagao{
+    private int qtdAssentos;
+
+    public VagaoPassageiros(int qtdAssentos) {
+        super();
+        this.qtdAssentos = qtdAssentos;
+    }
+
     @Override
     public int get_peso() {
-        return 0;
+        return (qtdAssentos*80);
     }
 
     @Override
