@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.LinkedList;
 public class Trem {
     private String id;
@@ -46,5 +47,7 @@ public class Trem {
             desengatar_carro(g);
         }
     }
+
+    public LinkedList<CarroFerroviario> get_composicao(){ return composicao; }
 
 }

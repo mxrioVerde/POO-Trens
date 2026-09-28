@@ -1,7 +1,7 @@
 public class VagaoCarga  extends Vagao{
     @Override
     public int get_peso() {
-        return 0;
+        return 5;
     }
 
     @Override

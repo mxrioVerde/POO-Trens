@@ -22,11 +22,19 @@ public class Sistema{
                 System.out.println("Qual o id do trêm que você deseja editar?");
                 String aux = i.nextLine();
                 imprimir_menuEdicao(p.achar_trem(aux));
-                return true;}
+                return true;
+            }
 
             case 3 -> {p.listar_trens(); return true;}
 
-            case 4 -> {System.out.println("listar características"); return true;}
+            case 4 -> {
+                p.listar_trens();
+                System.out.println("Insira o id");
+                String id = i.nextLine();
+                Trem ttt = p.achar_trem(id);
+                p.listar_carac_trem(ttt);
+                return true;
+            }
 
             case 5 -> {
                 System.out.println("Qual o id do trêm que você deseja desfazer?");
@@ -67,7 +75,7 @@ public class Sistema{
                 break;
 
             case 4:
-                g.printarTudo();
+                t.printarCF();
                 // Listar os carros ferroviários que fazem parte do trem
                 break;
 

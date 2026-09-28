@@ -11,6 +11,8 @@ public class VagaoPassageiros extends Vagao{
         return (qtdAssentos*80);
     }
 
+    public int getQtdAssentos(){return qtdAssentos;}
+
     @Override
     public int get_tracaomax() {
         return 0;
