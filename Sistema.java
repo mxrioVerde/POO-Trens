@@ -8,9 +8,16 @@ public class Sistema{
         int escolha = 0;
         while(op){
             imprimir_menu();
-            escolha = i.nextInt();
-            i.nextLine();
-            op = menu_opcao(escolha);
+            try {
+                escolha = i.nextInt();
+                i.nextLine();
+                op = menu_opcao(escolha);
+            } catch (java.util.InputMismatchException e) {
+                i.nextLine();
+                System.out.println("Entrada inválida.");
+            } catch (RuntimeException e) {
+                System.out.println("Erro: " + e.getMessage());
+            }
         }
     }
 
@@ -41,6 +48,7 @@ public class Sistema{
                 String aux2 = i.nextLine();
                 Trem tt = p.achar_trem(aux2);
                 tt.desfazerTrem(g);
+                p.remover_trem(tt);
                 return true;
             }
 
@@ -79,17 +87,15 @@ public class Sistema{
                 // Listar os carros ferroviários que fazem parte do trem
                 break;
 
-            case 5:
-                t.desfazerTrem(g);
-                break;
-
             default:
                 System.out.println("Opção inválida.");
         }
     }
 
     public static void imprimir_menuEdicao(Trem t) {
-        System.out.println("""
+        int aux = 0;
+        while (aux != 5) {
+            System.out.println("""
                     === Edição do Trem ===
                     1 - Engatar um carro ferroviário no trem
                     2 - Remover o último carro ferroviário
@@ -97,12 +103,28 @@ public class Sistema{
                     4 - Listar os carros ferroviários que fazem parte do trem
                     5 - Encerrar a edição do trem
                     """);
-        int aux = i.nextInt();
-        menu_edicao(aux,t);
+            try {
+                aux = i.nextInt();
+                if (aux != 5) menu_edicao(aux, t);
+            } catch (java.util.InputMismatchException e) {
+                i.next();
+                System.out.println("Entrada inválida.");
+            } catch (RuntimeException e) {
+                System.out.println("Erro: " + e.getMessage());
+            }
+        }
     }
 
     public static void imprimir_menu(){
-        System.out.println("escolha");
+        System.out.println("""
+                === Sistema de Composição de Trens ===
+                1 - Criar um trem
+                2 - Editar um trem
+                3 - Listar os trens no pátio
+                4 - Listar as características de um trem
+                5 - Desfazer um trem
+                0 - Fim
+                """);
     }
 
     public static void menuEngatarCarroFerroviario(Trem t) {

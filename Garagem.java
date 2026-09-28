@@ -12,6 +12,21 @@ public class Garagem {
         vagoesPassageiros = new LinkedList<CarroFerroviario>();
         vagoesRestaurante = new LinkedList<CarroFerroviario>();
         locomotivas = new LinkedList<CarroFerroviario>();
+
+        // carga inicial da garagem
+        locomotivas.add(new Locomotiva(100));
+        locomotivas.add(new Locomotiva(200));
+        locomotivas.add(new Locomotiva(150));
+        vagoesCarga.add(new VagaoCarga(30));
+        vagoesCarga.add(new VagaoCarga(50));
+        vagoesCarga.add(new VagaoCarga(20));
+        vagoesCargaRefrigerado.add(new VagaoCargaRefrigerado(20));
+        vagoesCargaRefrigerado.add(new VagaoCargaRefrigerado(40));
+        vagoesPassageiros.add(new VagaoPassageiros(50));
+        vagoesPassageiros.add(new VagaoPassageiros(60));
+        vagoesPassageiros.add(new VagaoPassageiros(40));
+        vagoesRestaurante.add(new VagaoRestaurante(16)); // múltiplos de 4 (4 assentos por mesa)
+        vagoesRestaurante.add(new VagaoRestaurante(20));
     }
 
 
@@ -87,7 +102,7 @@ public class Garagem {
                 int aux4 = Sistema.i.nextInt();
                 return vagoesCargaRefrigerado.get(aux4);
             default:
-                throw new IllegalArgumentException();
+                throw new IllegalArgumentException("Opção inválida");
         }
     }
 

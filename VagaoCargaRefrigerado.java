@@ -1,6 +1,10 @@
 public class VagaoCargaRefrigerado extends VagaoCarga{
+    public VagaoCargaRefrigerado(int capacidade) {
+        super(capacidade);
+    }
+
     @Override
     public int get_peso() {
-        return (int) (super.get_peso() * 1.15);
+        return super.get_peso() * 115 / 100; // +15% do gelo
     }
 }

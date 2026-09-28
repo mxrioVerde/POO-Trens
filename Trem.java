@@ -18,7 +18,7 @@ public class Trem {
         if(composicao.isEmpty() && !(c instanceof Locomotiva)){
             throw new IllegalArgumentException("primeiro carro tem que ser locomotiva");
         }
-        if(composicao.getLast() instanceof Vagao && (c instanceof Locomotiva)) {
+        if(!composicao.isEmpty() && composicao.getLast() instanceof Vagao && (c instanceof Locomotiva)) {
             throw new IllegalArgumentException("Não é possível engatar uma locomotiva após um vagão");
         }
         if (c instanceof Vagao) { if (pesomax + c.get_peso() > tracaoMax) {throw new IllegalArgumentException("O trêm não consegue tracionar mais peso");}}
@@ -28,6 +28,7 @@ public class Trem {
     }
 
     public void desengatar_carro(Garagem g) {
+        if (composicao.isEmpty()) throw new IllegalStateException("O trem não possui carros para remover");
         if (composicao.getLast() instanceof Vagao) { pesomax -= composicao.getLast().get_peso(); qtdVagoes--;} else {tracaoMax -= composicao.getLast().get_tracaomax();qtdLocomotivas--;}
         g.guardarCarro(composicao.getLast());
         composicao.removeLast();
@@ -43,7 +44,7 @@ public class Trem {
     }
 
     public void desfazerTrem(Garagem g) {
-        for (int i = 0; i < composicao.size(); i++) {
+        while (!composicao.isEmpty()) {
             desengatar_carro(g);
         }
     }

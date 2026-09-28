@@ -1,7 +1,16 @@
-public class VagaoCarga  extends Vagao{
+public class VagaoCarga extends Vagao{
+    private int capacidade; // toneladas
+
+    public VagaoCarga(int capacidade) {
+        super();
+        this.capacidade = capacidade;
+    }
+
+    public int getCapacidade() { return capacidade; }
+
     @Override
     public int get_peso() {
-        return 5;
+        return capacidade * 1000; // kg
     }
 
     @Override
